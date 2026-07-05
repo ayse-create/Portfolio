@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beyzanur Akçin · Kedi Portföyü</title>
+  <meta name="description" content="Beyzanur Akçin'in kişisel portföyü. Kedi temalı web projeleri, frontend geliştirme ve yaratıcı kodlar." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="assets/icons/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- LOADING -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <span class="loader-cat">🐱</span>
+      <div class="loader-bar"></div>
+      <p class="loader-text">Kediler yükleniyor...</p>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🐱</span>
+        <span class="logo-text">Beyza<span class="logo-dot">.</span></span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="active">Ana Sayfa</a></li>
+        <li><a href="about.html">Hakkımda</a></li>
+        <li><a href="projects.html">Projeler</a></li>
+        <li><a href="contact.html">İletişim</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="hero-badge">🐾 Frontend + Kedi</span>
+        <h1 class="hero-title">
+          Merhaba, ben <span class="gradient-text">Beyzanur</span>
+          <br />
+          <span class="typewriter" id="typewriter"></span>
+        </h1>
+        <p class="hero-description">
+          Kedi temalı projeler geliştiren, yaratıcı kodlar yazan ve frontend dünyasında gezinen bir tasarımcı.
+        </p>
+        <div class="hero-buttons">
+          <a href="projects.html" class="btn btn-primary">🐱 Projeleri Gör</a>
+          <a href="about.html" class="btn btn-secondary">Hakkımda</a>
+        </div>
+        <div class="hero-social">
+          <a href="https://github.com/ayse-create" target="_blank">🐙</a>
+          <a href="mailto:beyza@example.com">✉️</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-cat">
+          <span>🐱</span>
+          <div class="hero-cat-ring"></div>
+        </div>
+        <div class="floating-icons">
+          <span class="float-icon">🔎</span>
+          <span class="float-icon">💻</span>
+          <span class="float-icon">🎨</span>
+          <span class="float-icon">🧠</span>
+        </div>
+      </div>
+    </div>
+    <canvas id="particles-canvas" class="particles-canvas"></canvas>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" id="stats">
+    <div class="container stats-container">
+      <div class="stat-item">
+        <span class="stat-number" data-target="10">0</span>
+        <span class="stat-label">Proje</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="4">0</span>
+        <span class="stat-label">Teknoloji</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="100">0</span>
+        <span class="stat-label">Kedi</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="1">0</span>
+        <span class="stat-label">Dipsi</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED -->
+  <section class="featured" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🐾 Projeler</span>
+        <h2 class="section-title">Öne Çıkan <span class="gradient-text">Kedili</span> İşler</h2>
+        <p class="section-description">Seçtiğim bazı projeler. Her biri farklı bir hikaye anlatıyor.</p>
+      </div>
+      <div class="featured-grid" id="featuredGrid"></div>
+      <div class="section-footer">
+        <a href="projects.html" class="btn btn-outline">Tüm Projeleri Gör →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="container contact-container">
+      <div class="contact-content">
+        <span class="section-tag">✉️ İletişim</span>
+        <h2 class="section-title">Bana <span class="gradient-text">Ulaş</span></h2>
+        <p class="section-description">Bir proje fikrin mi var? Birlikte bir şeyler yapmak ister misin? Hadi konuşalım.</p>
+        <a href="contact.html" class="btn btn-primary">📩 Mesaj Gönder</a>
+        <div class="contact-social">
+          <a href="https://github.com/ayse-create" target="_blank">🐙 GitHub</a>
+          <a href="mailto:beyza@example.com">✉️ E-posta</a>
+        </div>
+      </div>
+      <div class="contact-cat">
+        <span>🐈</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p class="footer-text">🐱 <span id="footerYear">2025</span> Beyzanur Akçin · Kedilerle kodlanmıştır.</p>
+      <div class="footer-links">
+        <a href="https://github.com/ayse-create" target="_blank">GitHub</a>
+        <a href="mailto:beyza@example.com">E-posta</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop">↑</button>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- JS -->
+  <script src="js/particles.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
