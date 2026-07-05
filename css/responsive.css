@@ -2,7 +2,6 @@
    📱 RESPONSIVE
    ============================================ */
 
-/* Tablet */
 @media (max-width: 1024px) {
   .hero-container {
     grid-template-columns: 1fr;
@@ -46,9 +45,12 @@
   .contact-info {
     text-align: center;
   }
+
+  .about-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* Mobil */
 @media (max-width: 768px) {
   .nav-menu {
     position: fixed;
@@ -105,9 +107,16 @@
   .page-title {
     font-size: 30px;
   }
+
+  .about-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .custom-cursor {
+    display: none !important;
+  }
 }
 
-/* Küçük mobil */
 @media (max-width: 480px) {
   .hero-title {
     font-size: 28px;
@@ -124,5 +133,9 @@
 
   .stat-number {
     font-size: 28px;
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr;
   }
 }
