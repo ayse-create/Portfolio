@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeler · Beyzanur Akçin</title>
+  <link rel="icon" href="assets/icons/favicon.ico" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🐱</span>
+        <span class="logo-text">Beyza<span class="logo-dot">.</span></span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="about.html">Hakkımda</a></li>
+        <li><a href="projects.html" class="active">Projeler</a></li>
+        <li><a href="contact.html">İletişim</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PROJELER -->
+  <section class="page projects-page">
+    <div class="container">
+      <div class="page-header">
+        <span class="section-tag">🐱 Projeler</span>
+        <h1 class="page-title">Kedili <span class="gradient-text">Kodlar</span></h1>
+        <p class="page-description">Tüm projelerim, hepsi kedi temalı ve hepsi özel.</p>
+      </div>
+
+      <!-- Filtre -->
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">Tümü</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="desktop">Masaüstü</button>
+        <button class="filter-btn" data-filter="ai">Yapay Zeka</button>
+      </div>
+
+      <!-- Proje Grid -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- JS ile doldurulacak -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p class="footer-text">🐱 <span id="footerYear">2025</span> Beyzanur Akçin · Kedilerle kodlanmıştır.</p>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
