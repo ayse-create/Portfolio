@@ -1,6 +1,5 @@
 // ============================================
 // 🎬 ANİMASYONLAR
-// Typewriter, scroll animasyonları, sayaç
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
