@@ -189,7 +189,44 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(bubble);
 
     let isCatActive = true;
+    let selectedAnimal = localStorage.getItem('selectedAnimal') || '🐱';
 
+    // Hayvan seçici
+    const animalSelector = document.createElement('div');
+    animalSelector.className = 'animal-selector';
+    animalSelector.innerHTML = `
+      <button data-animal="🐱">🐱</button>
+      <button data-animal="🐶">🐶</button>
+      <button data-animal="🐰">🐰</button>
+      <button data-animal="🐹">🐹</button>
+      <button data-animal="🐻‍❄️">🐻‍❄️</button>
+      <button data-animal="🐮">🐮</button>
+      <button data-animal="🦁">🦁</button>
+    `;
+    document.body.appendChild(animalSelector);
+
+    // Hayvan seçme
+    animalSelector.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedAnimal = btn.dataset.animal;
+        cursor.textContent = selectedAnimal;
+        animalSelector.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        localStorage.setItem('selectedAnimal', selectedAnimal);
+      });
+    });
+
+    // Kayıtlı hayvanı yükle
+    const savedAnimal = localStorage.getItem('selectedAnimal');
+    if (savedAnimal) {
+      selectedAnimal = savedAnimal;
+      cursor.textContent = selectedAnimal;
+      animalSelector.querySelectorAll('button').forEach(b => {
+        if (b.dataset.animal === savedAnimal) b.classList.add('active');
+      });
+    }
+
+    // Kedi rehber butonu
     const toggleContainer = document.createElement('div');
     toggleContainer.className = 'cat-toggle';
     toggleContainer.innerHTML = `
@@ -205,6 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleBtn.textContent = isCatActive ? '😺' : '😾';
       cursor.style.display = isCatActive ? 'block' : 'none';
       bubble.classList.remove('show');
+      animalSelector.classList.toggle('show', isCatActive);
     });
 
     let messageTimeout = null;
@@ -244,22 +282,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      if (el.closest('.close-btn') || el.closest('.window-buttons') || el.closest('.navbar')) {
+      // SADECE kapatma butonları için uyarı
+      if (el.closest('.close-btn') || el.closest('.window-buttons')) {
         showBubble('😾 Buraya tıklama!', e);
         cursor.textContent = '😾';
         return;
       }
 
-      if (el.closest('.btn-primary') || el.closest('[type="submit"]')) {
-        showBubble('😻 Teşekkürler!', e);
-        cursor.textContent = '😻';
-        return;
-      }
-
-      if (!el.closest('.project-card') && !el.closest('.close-btn') && !el.closest('.btn-primary')) {
-        cursor.textContent = '🐱';
-        hideBubble();
-      }
+      // Geri kalan her şeyde normal hayvan
+      cursor.textContent = selectedAnimal;
+      hideBubble();
     }
 
     function showBubble(msg, e) {
@@ -320,6 +352,48 @@ document.addEventListener('DOMContentLoaded', () => {
       star.style.width = (Math.random() * 3 + 1) + 'px';
       star.style.height = star.style.width;
       starfield.appendChild(star);
+    }
+
+    // Modal işlemleri
+    const modal = document.getElementById('projectModal');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.project-link')) return;
+
+        const name = card.querySelector('h3')?.textContent || 'Proje';
+        const emoji = card.querySelector('.emoji')?.textContent || '🐱';
+        const desc = card.querySelector('p')?.textContent || '';
+
+        modalBody.innerHTML = `
+          <span class="modal-emoji">${emoji}</span>
+          <h2>${name}</h2>
+          <p class="modal-desc">${desc}</p>
+          <div class="modal-img">${emoji}</div>
+          <p style="color:var(--color-text-secondary); font-size:14px;">
+            🖥️ Masaüstü önerilir.<br>
+            ⭐ Projeyi oylamayı unutma!
+          </p>
+        `;
+
+        modal.classList.add('active');
+      });
+    });
+
+    if (modalClose) {
+      modalClose.addEventListener('click', () => {
+        modal.classList.remove('active');
+      });
+    }
+
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) {
+          modal.classList.remove('active');
+        }
+      });
     }
   })();
 
